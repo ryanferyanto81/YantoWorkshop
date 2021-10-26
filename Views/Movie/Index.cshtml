@@ -1,0 +1,45 @@
+@model MvcMovie.Models.MovieGenreViewModel
+@{
+ViewData["Title"] = "List";
+}
+<body style="background-color:black;"></body>
+<div class = "text center">
+     <h1 style="color:white;">Yanto Workshop</h1>
+      <a asp-controller="Movie" asp-action="Create">Sparepart Preorder</a> 
+      <form asp-controller="Movie" asp-action="Index" method="get">
+    <p>
+           <select asp-for="MovieGenre" asp-items="Model.Genres">
+            <option value="">Semua</option>
+        </select>
+       <p style="color:white;">NamaProduk:</p> <input type="text" name="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+<table class="table table-hover table-dark">
+            <thead>
+                  <tr>
+                        <th>@Html.DisplayNameFor(Model => Model.Movies [0].NamaProduk)</th>
+                        <th>@Html.DisplayNameFor(Model => Model.Movies [0].TanggalOrder)</th>
+                        <th>@Html.DisplayNameFor(Model => Model.Movies [0].JumlahBarang)</th>
+                        <th>@Html.DisplayNameFor(Model => Model.Movies [0].Harga)</th>
+                        <th>Actions</th>
+                  </tr>
+            </thead>
+            <tbody>
+                  @foreach (var item in Model.Movies)
+                  {
+                      <tr>
+                            <td>@Html.DisplayFor(modelItem => item.NamaProduk)</td>
+                            <td>@Html.DisplayFor(modelItem => item.TanggalOrder)</td>
+                            <td>@Html.DisplayFor(modelItem => item.JumlahBarang)</td>
+                            <td>Rp.@Html.DisplayFor(modelItem => item.Harga)</td>
+                            <td>
+                                  <a asp-controller="Movie" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                  <a asp-controller="Movie" asp-action="show" asp-route-id="@item.Id">Detail</a> |
+                                  <a asp-controller="Movie" asp-action="Delete" asp-route-id="@item.Id">Hapus</a>
+                            </td>
+                      </tr>
+                  }
+            </tbody>
+      </table>
+</div>

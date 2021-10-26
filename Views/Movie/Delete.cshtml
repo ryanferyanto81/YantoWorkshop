@@ -1,0 +1,26 @@
+@model Movie
+@{
+    ViewData["Title"] = "show Movie";
+}
+<h2>@Model.NamaProduk</h2>
+<table class = "table">
+    <thead>
+    <tr>
+        <td>Genre : </td>
+        <td>@Model.JumlahBarang</td>
+    </tr>
+    <tr>
+        <td>TanggalOrder : </td>
+        <td>@Model.TanggalOrder</td>
+    </tr>
+    <tr>
+        <td>Price: </td>
+        <td>Rp.@Math.Round(@Model.Harga)</td>
+     </tr>
+    </thead>
+</table>
+
+<form asp-controller="Movie" asp-action="DeleteConfirmed"asp-route-id="@Model.Id">
+<button class="btn btn-danger" type="Submit">Yes</button>
+<a class="btn btn-primary" asp-controller="Movie" asp-action="Index">Back</a>
+</form>
