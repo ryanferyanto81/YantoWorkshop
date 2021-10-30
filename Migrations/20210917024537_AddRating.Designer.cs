@@ -25,19 +25,16 @@ namespace MvcMovie.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("Genre")
+                    b.Property<string>("JumlahBarang")
                         .HasColumnType("longtext");
 
-                    b.Property<decimal>("Price")
+                    b.Property<decimal>("Harga")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("Rating")
-                        .HasColumnType("longtext");
-
-                    b.Property<DateTime>("ReleaseDate")
+                    b.Property<DateTime>("TanggalOrder")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<string>("Title")
+                    b.Property<string>("NamaProduk")
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
