@@ -156,9 +156,5 @@ namespace MvcMovie.Controllers
             return RedirectToAction("Index");
            
         }
-         public IActionResult Login()
-         {
-             return View();
-         }
     }
 }
