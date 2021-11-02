@@ -17,18 +17,12 @@ namespace MvcMovie.Controllers
         private readonly ILogger<HomeController> _logger;
         private MvcMovieDbContext _context;
         private UserManager<User> _userManager;
-public HomeController(ILogger<HomeController> logger, MvcMovieDbContext context, UserManager<User> userManager)
-{
-_logger = logger;
-_context = context;
-_userManager = userManager;
-}
-
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, MvcMovieDbContext context, UserManager<User> userManager)
         {
             _logger = logger;
-        }
-        
+            _context = context;
+            _userManager = userManager;
+            }
         public IActionResult Index()
         {
             var userId = _userManager.GetUserId(User);
