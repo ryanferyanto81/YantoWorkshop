@@ -6,7 +6,7 @@ namespace MvcMovie.Models
 {
     public class Movie
     {
-        public int Id { get; set; 
+        public int Id { get; set; }
         public string NamaProduk { get; set; }
 
         [Display(Name = "TanggalOrder")]
