@@ -441,3 +441,5 @@ D:\YantoWorkshop\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ValidationScriptsP
 D:\YantoWorkshop\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 D:\YantoWorkshop\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
 D:\YantoWorkshop\obj\Debug\net5.0\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
+D:\YantoWorkshop\bin\Debug\net5.0\Castle.Core.dll
+D:\YantoWorkshop\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Proxies.dll

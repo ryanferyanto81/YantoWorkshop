@@ -10,6 +10,6 @@ namespace MvcMovie.Models
     {
         public string Name { get; set; }
 
-        public List<Movie> Movies { get; set; }
+        public virtual List<Movie> Movies { get; set; }
     }
 }
