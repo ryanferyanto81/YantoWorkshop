@@ -10,11 +10,11 @@
         "projectUniqueName": "D:\\YantoWorkshop\\MvcMovie.csproj",
         "projectName": "MvcMovie",
         "projectPath": "D:\\YantoWorkshop\\MvcMovie.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\acer\\.nuget\\packages\\",
         "outputPath": "D:\\YantoWorkshop\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
