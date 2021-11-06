@@ -12,7 +12,8 @@ using MvcMovie.Models;
 
 namespace MvcMovie.Controllers
 {
-    public class HomeController : Controller
+    [Authorize]
+       public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
         private MvcMovieDbContext _context;
