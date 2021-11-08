@@ -5,7 +5,6 @@ ViewData["Title"] = "List";
 <body style="background-color:black;"></body>
 <div class = "text center">
      <h1 style="color:white;">Yanto Workshop</h1>
-      <a asp-controller="Movie" asp-action="Create">Sparepart Preorder</a> 
       <form asp-controller="Movie" asp-action="Index" method="get">
     <p>
            <select asp-for="MovieGenre" asp-items="Model.Genres">
@@ -14,6 +13,13 @@ ViewData["Title"] = "List";
        <p style="color:white;">NamaProduk:</p> <input type="text" name="SearchString" />
         <input type="submit" value="Filter" />
     </p>
+    <style>
+    body {
+        background-image: url('https://i.postimg.cc/hj58rpz9/IMG-20211108-0005.png');
+        background-size: cover;
+    }
+</style>
+    <a class="btn btn-primary" asp-controller="Movie" asp-action="Create">Beli Sparepart </a> 
 </form>
 <table class="table table-hover table-dark">
             <thead>
@@ -36,7 +42,7 @@ ViewData["Title"] = "List";
                             <td>
                                   <a asp-controller="Movie" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                                   <a asp-controller="Movie" asp-action="show" asp-route-id="@item.Id">Detail</a> |
-                                  <a asp-controller="Movie" asp-action="Delete" asp-route-id="@item.Id">Hapus</a>
+                                  <a asp-controller="Movie" asp-action="Delete" asp-route-id="@item.Id">Beli</a>
                             </td>
                       </tr>
                   }
