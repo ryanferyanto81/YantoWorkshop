@@ -1,14 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using MvcMovie.Models;
+using YantoWorkshop.Models;
 
 namespace MvcMovie.Areas.Identity.Pages.Account.Manage
 {
@@ -26,8 +24,6 @@ namespace MvcMovie.Areas.Identity.Pages.Account.Manage
         }
 
         public string Username { get; set; }
-        
-        public string Avatar { get; set; }
 
         [TempData]
         public string StatusMessage { get; set; }
@@ -40,8 +36,6 @@ namespace MvcMovie.Areas.Identity.Pages.Account.Manage
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
-
-            public IFormFile AvatarFile { get; set; }
         }
 
         private async Task LoadAsync(User user)
@@ -55,7 +49,6 @@ namespace MvcMovie.Areas.Identity.Pages.Account.Manage
             {
                 PhoneNumber = phoneNumber
             };
-            Avatar = Path.Combine("/Profile/Avatar", user.Avatar ?? "");
         }
 
         public async Task<IActionResult> OnGetAsync()
@@ -94,25 +87,6 @@ namespace MvcMovie.Areas.Identity.Pages.Account.Manage
                     return RedirectToPage();
                 }
             }
-
-            var avatarDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Avatars");
-            Directory.CreateDirectory(avatarDirectory);
-
-            var extension = Path.GetExtension(Input.AvatarFile?.FileName)?.ToLowerInvariant();
-            var permittedType = new string[] { ".png", ".jpg" };
-
-            if (string.IsNullOrEmpty(extension) || !permittedType.Contains(extension))
-            {
-                StatusMessage = "Unsupported file type";
-                return RedirectToPage();
-            }
-
-            var fileName = $"{user.Id}{extension}";
-            var avatarFile = Path.Combine(avatarDirectory, fileName);
-            using var stream = new FileStream(avatarFile, FileMode.Create);
-            await Input.AvatarFile.CopyToAsync(stream);
-            user.Avatar = fileName;
-            await _userManager.UpdateAsync(user);
 
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";

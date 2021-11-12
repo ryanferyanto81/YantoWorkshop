@@ -1,6 +1,6 @@
 using System;
 
-namespace MvcMovie.Models
+namespace YantoWorkshop.Models
 {
     public class ErrorViewModel
     {

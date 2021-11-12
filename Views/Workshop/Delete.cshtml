@@ -1,4 +1,4 @@
-@model Movie
+@model Workshop
 @{
     ViewData["Title"] = "show Movie";
 }
@@ -10,17 +10,13 @@
         <td>@Model.JumlahBarang</td>
     </tr>
     <tr>
-        <td>Tanggal Order : </td>
-        <td>@Model.TanggalOrder</td>
-    </tr>
-    <tr>
         <td>Harga: </td>
         <td>Rp.@Math.Round(@Model.Harga)</td>
      </tr>
     </thead>
 </table>
 
-<form asp-controller="Movie" asp-action="DeleteConfirmed"asp-route-id="@Model.Id">
+<form asp-controller="Workshop" asp-action="DeleteConfirmed"asp-route-id="@Model.Id">
 <button class="btn btn-danger" type="Submit">Yes</button>
-<a class="btn btn-primary" asp-controller="Movie" asp-action="Index">Back</a>
+<a class="btn btn-primary" asp-controller="Workshop" asp-action="Index">Back</a>
 </form>

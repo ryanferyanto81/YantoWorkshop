@@ -7,18 +7,18 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using MvcMovie.Data;
-using MvcMovie.Models;
+using YantoWorkshop.Models;
+using YantoWorkshop.Data;
 
-namespace MvcMovie.Controllers
+namespace YantoWorkshop.Controllers
 {
     [Authorize]
        public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private MvcMovieDbContext _context;
+        private YantoWorkshopDbContext _context;
         private UserManager<User> _userManager;
-        public HomeController(ILogger<HomeController> logger, MvcMovieDbContext context, UserManager<User> userManager)
+        public HomeController(ILogger<HomeController> logger, YantoWorkshopDbContext context, UserManager<User> userManager)
         {
             _logger = logger;
             _context = context;

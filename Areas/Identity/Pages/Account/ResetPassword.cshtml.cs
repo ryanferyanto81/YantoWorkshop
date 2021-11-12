@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using MvcMovie.Models;
+using YantoWorkshop.Models;
 
 namespace MvcMovie.Areas.Identity.Pages.Account
 {

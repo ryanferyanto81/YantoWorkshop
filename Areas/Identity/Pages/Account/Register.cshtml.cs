@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
-using MvcMovie.Models;
+using YantoWorkshop.Models;
 
 namespace MvcMovie.Areas.Identity.Pages.Account
 {

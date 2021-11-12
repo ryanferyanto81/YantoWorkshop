@@ -1,0 +1,40 @@
+@{
+ViewData["Title"] = "List";
+}
+<body style="background-color:black;"></body>
+<div class = "text center">
+
+     <h1 style="color:black;">Yanto Workshop</h1>
+    <style>
+    body {
+        background-image: url('https://i2.wp.com/himamasta.ub.ac.id/wp-content/uploads/2017/12/Savin-NY-Website-Background-Web.jpg');
+        background-size: cover;
+    }
+</style>
+<a class="btn btn-primary" asp-controller="Workshop" asp-action="Create">Add Product </a> 
+<table class="table table-hover table-white">
+    
+        <thead>
+            <tr>
+                <th>Nama Produk</th>
+                 <th>Harga</th>
+                 <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.NamaProduk</td>
+                    <td>@item.Harga</td>
+                    <td>
+                        
+                        <a asp-controller="Workshop" asp-action="Delete" asp-route-id="@item.Id">Delete</a> |
+                        <a asp-controller="Workshop" asp-action="Show" asp-route-id="@item.Id">Detail</a> |
+                        <a asp-controller="Workshop" asp-action="Beli" asp-route-id="@item.Id">Beli</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

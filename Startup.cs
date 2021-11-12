@@ -9,12 +9,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
-using MvcMovie.Data;
-using MvcMovie.Models;
+using YantoWorkshop.Data;
+using YantoWorkshop.Models;
 using Microsoft.AspNetCore.Identity;
 
 
-namespace MvcMovie
+namespace YantoWorkshop
 {
     public class Startup
     {
@@ -30,7 +30,7 @@ namespace MvcMovie
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<MvcMovieDbContext>(options =>{
+            services.AddDbContext<YantoWorkshopDbContext>(options =>{
                 var connectionString = Configuration.GetConnectionString("MovieApp");
                 var serverVersion = new MariaDbServerVersion(new Version(10, 6, 4));
                 options.UseMySql(connectionString, serverVersion);
@@ -38,7 +38,7 @@ namespace MvcMovie
             });
                         services
                 .AddDefaultIdentity<User>()
-                .AddEntityFrameworkStores<MvcMovieDbContext>()
+                .AddEntityFrameworkStores<YantoWorkshopDbContext>()
                 .AddDefaultTokenProviders();
             services.AddRazorPages();
         }

@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using MvcMovie.Data;
+using YantoWorkshop.Data;
 
 namespace MvcMovie.Migrations
 {
-    [DbContext(typeof(MvcMovieDbContext))]
-    partial class MvcMovieDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(YantoWorkshopDbContext))]
+    [Migration("20211111024222_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -92,10 +94,12 @@ namespace MvcMovie.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("varchar(255)");
+                        .HasMaxLength(128)
+                        .HasColumnType("varchar(128)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("varchar(255)");
+                        .HasMaxLength(128)
+                        .HasColumnType("varchar(128)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("longtext");
@@ -132,10 +136,12 @@ namespace MvcMovie.Migrations
                         .HasColumnType("varchar(255)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("varchar(255)");
+                        .HasMaxLength(128)
+                        .HasColumnType("varchar(128)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("varchar(255)");
+                        .HasMaxLength(128)
+                        .HasColumnType("varchar(128)");
 
                     b.Property<string>("Value")
                         .HasColumnType("longtext");
@@ -145,41 +151,16 @@ namespace MvcMovie.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("MvcMovie.Models.Movie", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Harga")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("JumlahBarang")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("NamaProduk")
-                        .HasColumnType("longtext");
-
-                    b.Property<DateTime>("TanggalOrder")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("varchar(255)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Movies");
-                });
-
-            modelBuilder.Entity("MvcMovie.Models.User", b =>
+            modelBuilder.Entity("YantoWorkshop.Models.User", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("varchar(255)");
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
+
+                    b.Property<string>("Avatar")
+                        .HasColumnType("longtext");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -240,6 +221,31 @@ namespace MvcMovie.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("YantoWorkshop.Models.Workshop", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Harga")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("JumlahBarang")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("NamaProduk")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("varchar(255)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Workshops");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -251,7 +257,7 @@ namespace MvcMovie.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("MvcMovie.Models.User", null)
+                    b.HasOne("YantoWorkshop.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -260,7 +266,7 @@ namespace MvcMovie.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("MvcMovie.Models.User", null)
+                    b.HasOne("YantoWorkshop.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -275,7 +281,7 @@ namespace MvcMovie.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MvcMovie.Models.User", null)
+                    b.HasOne("YantoWorkshop.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -284,23 +290,23 @@ namespace MvcMovie.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("MvcMovie.Models.User", null)
+                    b.HasOne("YantoWorkshop.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("MvcMovie.Models.Movie", b =>
+            modelBuilder.Entity("YantoWorkshop.Models.Workshop", b =>
                 {
-                    b.HasOne("MvcMovie.Models.User", null)
-                        .WithMany("Movies")
+                    b.HasOne("YantoWorkshop.Models.User", null)
+                        .WithMany("Workshops")
                         .HasForeignKey("UserId");
                 });
 
-            modelBuilder.Entity("MvcMovie.Models.User", b =>
+            modelBuilder.Entity("YantoWorkshop.Models.User", b =>
                 {
-                    b.Navigation("Movies");
+                    b.Navigation("Workshops");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,0 +1,22 @@
+@model Workshop
+@{
+    ViewData["Title"] = "show Movie";
+}
+<h2>@Model.NamaProduk</h2>
+<table class = "table">
+    <thead>
+            <div class="form-group">
+                <label asp-for="JumlahBarang" class="control-label"></label>
+                <input asp-for="JumlahBarang" class="form-control" />
+                <span asp-validation-for="JumlahBarang" class="text-danger"></span>
+            </div>
+    <tr>
+        <td>Harga/Barang: </td>
+        <td>Rp.@Math.Round(@Model.Harga)</td>
+     </tr>
+    </thead>
+</table>
+
+
+<a class="btn btn-danger" asp-controller="Workshop" asp-action="Pembelian">Beli</a>
+<a class="btn btn-primary" asp-controller="Workshop" asp-action="Index">Kembali</a>
